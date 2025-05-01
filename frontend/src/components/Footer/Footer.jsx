@@ -1,16 +1,33 @@
-˳
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/Logo2.png";
+import logo from '../../assets/images/logo2.png';
 import {
   AiFillYoutube,
   AiFillGithub,
   AiFillInstagram,
   AiFillLinkedin,
 } from "react-icons/ai";
+
+// Social links with icons
 const socialLinks = [
-  
+  {
+    path: "https://www.youtube.com",
+    icon: <AiFillYoutube />,
+  },
+  {
+    path: "https://github.com",
+    icon: <AiFillGithub />,
+  },
+  {
+    path: "https://www.instagram.com",
+    icon: <AiFillInstagram />,
+  },
+  {
+    path: "https://www.linkedin.com",
+    icon: <AiFillLinkedin />,
+  },
 ];
+
 const quickLinks01 = [
   {
     path: "/home",
@@ -37,7 +54,7 @@ const quickLinks02 = [
   },
   {
     path: "/about",
-    display: "Reuest an Appointment",
+    display: "Request an Appointment", // Corrected typo here
   },
   {
     path: "/",
@@ -45,7 +62,7 @@ const quickLinks02 = [
   },
   {
     path: "/",
-    display: "Get a Opinion",
+    display: "Get an Opinion",
   },
 ];
 
@@ -59,6 +76,7 @@ const quickLinks03 = [
     display: "Contact Us",
   },
 ];
+
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
@@ -69,7 +87,7 @@ const Footer = () => {
             <img
               className="w-28 h-20 object-fill overflow-hidden"
               src={logo}
-              alt=""
+              alt="Company Logo" // Updated alt text
             />
             
             <div className="flex items-center gap-3 mt-4">

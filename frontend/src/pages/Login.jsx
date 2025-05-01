@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { BASE_URL } from "../config";
 import { toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader";
 import { authContext } from "../context/AuthContext.jsx";
+import axios from "axios";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -24,32 +24,31 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${BASE_URL}/auth/login`, {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      const result = await res.json();
-      if (!res.ok) {
-        throw new Error(result.message);
-      }
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/auth/login`,
+        formData,
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       dispatch({
         type: "LOGIN_SUCCESS",
         payload: {
-          user: result.data,
-          token: result.token,
-          role: result.role,
+          user: res.data.data,
+          token: res.data.token,
+          role: res.data.role,
         },
       });
 
-      setLoading(false);
-      toast.success(result.message);
+      toast.success(res.data.message);
       navigate("/home");
     } catch (err) {
-      toast.error(err.message);
+      toast.error(err.response?.data?.message || "Login failed");
+    } finally {
       setLoading(false);
     }
   };
@@ -61,7 +60,7 @@ const Login = () => {
           Hello
           <span className="text-primaryColor"> Welcome </span> Back 👋
         </h3>
-        <form action="" className="py-4 md:py-0" onSubmit={submitHandler}>
+        <form className="py-4 md:py-0" onSubmit={submitHandler}>
           <div className="mb-5">
             <input
               type="email"

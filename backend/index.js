@@ -19,33 +19,20 @@ dotenv.config();
 const app = express();
 const port = 8000;
 
+// Set the allowed origin for CORS
 const corsOptions = {
-  origin: true,
+  origin: "https://6813901a1b75d30075601072--diagno.netlify.app", // Replace with your Netlify domain
+  methods: ["GET", "POST", "PUT", "DELETE"],  // Adjust methods as necessary
+  credentials: true,  // Allow credentials like cookies if needed
 };
 
-app.get("/", (req, res) => {
-  res.send("Api is working");
-});
-
-//database connection
-mongoose.set("strictQuery", false);
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URL, {
-      //   useNewUrlParser: true,
-      //   useUnifiedTopology: true,
-    });
-    console.log("Mongoose connected");
-  } catch (error) {
-    console.log("Mongoose connection failed");
-  }
-};
-
-//middleware
+// Middleware and routes
+app.use(cors(corsOptions)); // Enable CORS with the specific frontend domain
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors(corsOptions));
-app.use("/api/v1/auth", authRoute); //domain/api/v1/auth/register or any other request
+
+// API routes
+app.use("/api/v1/auth", authRoute); // domain/api/v1/auth/register or any other request
 app.use("/api/v1/users", userRoute);
 app.use("/api/v1/doctors", doctorRoute);
 app.use("/api/v1/reviews", reviewRoute);
@@ -55,6 +42,23 @@ app.use("/api/v1/admin", adminRoute);
 app.use("/api/v1/", contactRoute);
 app.use("/api/v1/", forgotPassRoute);
 app.use("/api/v1/", healthRoute);
+
+// Database connection and server
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("Mongoose connected");
+  } catch (error) {
+    console.log("Mongoose connection failed", error);
+  }
+};
+
+app.get("/", (req, res) => {
+  res.send("API is working");
+});
 
 app.listen(port, () => {
   connectDB();

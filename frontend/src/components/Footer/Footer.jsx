@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/Logo1.png";
+import logo from "../../assets/images/Logo2.png";
 import {
   AiFillYoutube,
   AiFillGithub,
@@ -8,22 +8,7 @@ import {
   AiFillLinkedin,
 } from "react-icons/ai";
 const socialLinks = [
-  {
-    path: "https://github.com/abdul-wahab619",
-    icon: <AiFillGithub className="group-hover:text-white w-4 h-5" />,
-  },
-  {
-    path: "https://www.youtube.com/@abdul-wahab-aw",
-    icon: <AiFillYoutube className="group-hover:text-white w-4 h-5" />,
-  },
-  {
-    path: "https://www.instagram.com/mr.abdulwahab.aw/",
-    icon: <AiFillInstagram className="group-hover:text-white w-4 h-5" />,
-  },
-  {
-    path: "https://www.linkedin.com/in/abdul-wahab-aw/",
-    icon: <AiFillLinkedin className="group-hover:text-white w-4 h-5" />,
-  },
+  
 ];
 const quickLinks01 = [
   {
@@ -85,10 +70,7 @@ const Footer = () => {
               src={logo}
               alt=""
             />
-            <p className="text-[16px] leading-7 font-[400] text-textColor mt-4">
-              Copyright &#169; {year} developed by Abdul Wahab & Nafeesa
-              Shehzadi all right reserved.
-            </p>
+            
             <div className="flex items-center gap-3 mt-4">
               {socialLinks.map((link, index) => (
                 <Link

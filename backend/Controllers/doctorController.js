@@ -33,11 +33,17 @@ export const updateDoctor = async (req, res) => {
 export const deleteDoctor = async (req, res) => {
   const id = req.params.id;
   try {
-    await Doctor.findById(id);
+    const deletedDoctor = await Doctor.findByIdAndDelete(id);
+    if (!deletedDoctor) {
+      return res.status(404).json({
+        success: false,
+        message: "Doctor not found",
+      });
+    }
     res.status(200).json({
       success: true,
       message: "Successfully deleted",
-      data: deleteDoctor,
+      data: deletedDoctor,
     });
   } catch (error) {
     res.status(500).json({

@@ -3,7 +3,6 @@ import Home from "../pages/Home";
 import Services from "../pages/Services";
 import Signup from "../pages/Signup";
 import Symptomchk from "../pages/Symptomchk";
-import SymptomChecker from "../components/SymptomChecker";
 import Login from "../pages/Login";
 import Contact from "../pages/Contact";
 import Doctors from "../pages/Doctors/Doctors";
@@ -31,7 +30,6 @@ const Routers = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
-      <Route path="/symptom-checker" element={<SymptomChecker />} />
 
 
       <Route

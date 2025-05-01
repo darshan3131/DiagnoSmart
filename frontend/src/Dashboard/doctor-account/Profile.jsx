@@ -112,7 +112,7 @@ const Profile = ({ doctorData }) => {
       startingDate: "",
       endingDate: "",
       degree: "BS-CS",
-      university: "University of Gujrat",
+      university: "",
     });
   };
 

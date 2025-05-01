@@ -125,7 +125,7 @@ const Signup = () => {
                     <option value="select">Select</option>
                     <option value="patient">Patient</option>
                     <option value="doctor">Doctor</option>
-                    <option value="assistant">Lab Assistant</option>
+                    
                   </select>
                 </label>
 

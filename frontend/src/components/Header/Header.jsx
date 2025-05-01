@@ -1,6 +1,6 @@
 import "../../App.css";
 import React, { useEffect, useRef, useContext } from "react";
-import logo from "../../assets/images/Logo1.png";
+import logo from "../../assets/images/Logo2.png";
 import { NavLink, Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";

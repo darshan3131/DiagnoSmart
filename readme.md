@@ -8,7 +8,7 @@ The AI-based Medical Laboratory project aims to revolutionize laboratory medicin
 
 - **Customer Module**: Allows patients to submit samples and receive results.
 - **Doctor Module**: Provides doctors with tools to analyze lab results and make informed decisions.
-- **Lab Assistant Module**: Assists lab technicians with managing samples and running analyses using AI/ML tools.
+- **Lab Assistant Module**: Supports lab assistants in managing laboratory workflows and assisting doctors and patients.
 
 ### Pros and Cons
 
@@ -49,7 +49,7 @@ The project is structured into two main directories:
 1. **Clone the repository**
 
 ```bash
-   git clone https://github.com/your-username/ai-medical-lab.git
+   git clone https://github.com/your-username/diagnosmart.git
    cd ai-medical-lab
 ```
 
@@ -73,7 +73,9 @@ The project is structured into two main directories:
 
 ```text
    MONGO_URI=your_mongodb_uri
-   PORT=5000
+   PORT=8000
+   STRIPE_SECRET_KEY=your_stripe_secret_key
+   CLIENT_SITE_URL=http://localhost:5173
 ```
 
 5. **Run the backend server**

@@ -1,14 +1,13 @@
-# AI-based Medical Laboratory
+# DiagnoSmart
 
 ## Project Overview
 
-The AI-based Medical Laboratory project aims to revolutionize laboratory medicine through the use of artificial intelligence (AI) and machine learning (ML). By enhancing the precision and speed of laboratory processes, the project seeks to reduce human errors, cut costs, and ultimately improve patient outcomes and satisfaction.
+DiagnoSmart project aims to revolutionize laboratory medicine through the use of artificial intelligence (AI) and machine learning (ML). By enhancing the precision and speed of laboratory processes, the project seeks to reduce human errors, cut costs, and ultimately improve patient outcomes and satisfaction.
 
 ### Features
 
 - **Customer Module**: Allows patients to submit samples and receive results.
 - **Doctor Module**: Provides doctors with tools to analyze lab results and make informed decisions.
-- **Lab Assistant Module**: Supports lab assistants in managing laboratory workflows and assisting doctors and patients.
 
 ### Pros and Cons
 
